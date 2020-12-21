@@ -1,3 +1,6 @@
 /target/
 /.classpath
 /.settings/
+/.idea
+/CEMP.iml
+/CreateEmptyMavenProject.iml

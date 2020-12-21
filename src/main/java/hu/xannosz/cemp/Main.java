@@ -34,10 +34,13 @@ public class Main implements ActionListener {
 		File dir = new File("..");
 		for (String project : dir.list()) {
 			boolean empty = true;
+			try{
 			for (String name : new File("../" + project).list()) {
 				if (name.equals("pom.xml")) {
 					empty = false;
 				}
+			}}catch (Exception e){
+				System.out.println(e);
 			}
 			if (empty) {
 				projects.add(project);
