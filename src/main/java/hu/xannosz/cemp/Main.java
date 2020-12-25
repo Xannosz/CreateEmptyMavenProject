@@ -80,11 +80,11 @@ public class Main implements ActionListener {
             new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/main").mkdir();
             new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/test").mkdir();
 
-            new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/main/java/"
-                    + artifactId.getText().trim().replace(".", "/")).mkdirs();
+            new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/main/java/hu/xannosz/"
+                    + artifactId.getText().trim().toLowerCase().replace(".", "/")).mkdirs();
             new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/main/resources/").mkdirs();
-            new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/test/java/"
-                    + artifactId.getText().trim().replace(".", "/")).mkdirs();
+            new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/test/java/hu/xannosz/"
+                    + artifactId.getText().trim().toLowerCase().replace(".", "/")).mkdirs();
             new File("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/src/test/resources/").mkdirs();
 
             try (PrintWriter writer = new PrintWriter("../" + Objects.requireNonNull(comboBox.getSelectedItem()).toString() + "/pom.xml", "UTF-8")) {
@@ -136,7 +136,7 @@ public class Main implements ActionListener {
     private String replaceTemplate(String line) {
         String result = line;
         result = result.replaceAll("##name##", name.getText().trim());
-        result = result.replaceAll("##artifactId##", artifactId.getText().trim());
+        result = result.replaceAll("##artifactId##", artifactId.getText().trim().toLowerCase());
         result = result.replaceAll("##lombokVersion##", LOMBOK_VERSION);
         result = result.replaceAll("##microtoolsVersion##", MICRO_TOOLS_VERSION);
         return result;
